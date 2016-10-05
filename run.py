@@ -1,19 +1,18 @@
-from cv2 import cv2
+import cv2
 import sys
 
 # Get user supplied values
 imagePath = sys.argv[1]     #pass in the image and cascade names as command-line arguments
 cascPath = sys.argv[2]
 
-# Create the haar cascade & and initialize it with our face cascade.
-# loads the face cascade into memory so it’s ready
+#create the haar cascade & init it with the face cascade,it loads the face cascade into memory  so its ready
 faceCascade = cv2.CascadeClassifier(cascPath)
 
 # Read the image
 image = cv2.imread(imagePath)
 gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)  #convert it to grayscale for cv2
 
-                    #detectMultiScale function is a general function that detects objects. Since we are calling it on the face cascade, that’s what it detects.
+#detectmultiscale fnt gen fnt that detects objects,since we called it on facecascade,it detects faces
 faces = faceCascade.detectMultiScale(
     gray,
     scaleFactor=1.1,
@@ -33,4 +32,8 @@ print "Found {0} faces!".format(len(faces))
 for (x, y, w, h) in faces:  #loop over where it thinks it found something.
     cv2.rectangle(image, (x, y), (x+w, y+h), (0, 255, 0), 2)
     #This function returns 4 values: the x and y location of the rectangle,
-    #  and the rectangle’s width and height (w , h).
+    #and the rectangles width & height
+
+cv2.imshow("Faces found" ,image)        #values to draw a rectangle using the built-in rectangle() function.
+cv2.waitKey(0)                          # wait for the user to press a key.
+
