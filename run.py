@@ -12,6 +12,9 @@ faceCascade = cv2.CascadeClassifier(cascPath)
 image = cv2.imread(imagePath)
 gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)  #convert it to grayscale for cv2
 
+
+video_capture = cv2.VideoCapture(0)     #sets video source to webcam
+
 #detectmultiscale fnt gen fnt that detects objects,since we called it on facecascade,it detects faces
 faces = faceCascade.detectMultiScale(
     gray,
