@@ -28,3 +28,9 @@ faces = faceCascade.detectMultiScale(
 
 print "Found {0} faces!".format(len(faces))
     #The function returns a list of rectangles where it believes it found a face
+
+
+for (x, y, w, h) in faces:  #loop over where it thinks it found something.
+    cv2.rectangle(image, (x, y), (x+w, y+h), (0, 255, 0), 2)
+    #This function returns 4 values: the x and y location of the rectangle,
+    #  and the rectangle’s width and height (w , h).
