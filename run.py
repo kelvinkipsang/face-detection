@@ -26,3 +26,5 @@ faces = faceCascade.detectMultiScale(
             #  objects are detected near the current one before it declares the face found.
         #minSize,  gives the size of each window.
 
+print "Found {0} faces!".format(len(faces))
+    #The function returns a list of rectangles where it believes it found a face
